@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -166,9 +169,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -181,6 +186,10 @@
     <Compile Include="Migrations\202312110727496_AddCustomersAndDocumentTypesTable.cs" />
     <Compile Include="Migrations\202312110727496_AddCustomersAndDocumentTypesTable.designer.cs">
       <DependentUpon>202312110727496_AddCustomersAndDocumentTypesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202312110805449_SeedDocumentTypeTable.cs" />
+    <Compile Include="Migrations\202312110805449_SeedDocumentTypeTable.designer.cs">
+      <DependentUpon>202312110805449_SeedDocumentTypeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -266,6 +275,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\ApiControllers\" />
+    <Folder Include="Views\Customers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -300,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312110727496_AddCustomersAndDocumentTypesTable.resx">
       <DependentUpon>202312110727496_AddCustomersAndDocumentTypesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312110805449_SeedDocumentTypeTable.resx">
+      <DependentUpon>202312110805449_SeedDocumentTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
