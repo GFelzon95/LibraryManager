@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using LibraryManager.Dtos;
+using LibraryManager.Models;
 
 namespace LibraryManager.App_Start
 {
@@ -6,7 +8,8 @@ namespace LibraryManager.App_Start
     {
         public MappingProfile()
         {
-            //Mapper.CreateMap<Customer, CustomerDto>();
+            Mapper.CreateMap<Customer, CustomerDto>();
+            Mapper.CreateMap<DocumentType, DocumentTypeDto>();
         }
     }
 }

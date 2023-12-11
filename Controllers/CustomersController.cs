@@ -1,5 +1,6 @@
 ﻿using LibraryManager.Models;
 using LibraryManager.ViewModels;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -37,6 +38,21 @@ namespace LibraryManager.Controllers
             return View("CustomerForm", viewModel);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers
+                .Include(c => c.DocumentType)
+                .SingleOrDefault(c => c.Id == id);
+
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                DocumentTypes = _context.DocumentType.ToList()
+            };
+
+            return View("CustomerForm", viewModel);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
@@ -57,9 +73,19 @@ namespace LibraryManager.Controllers
                 _context.Customers.Add(customer);
             }
 
+            else
+            {
+                var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == customer.Id);
+
+                customerInDb.Name = customer.Name;
+                customerInDb.PhoneNumber = customer.PhoneNumber;
+                customerInDb.DocumentTypeId = customer.DocumentTypeId;
+                customerInDb.DocumentNumber = customer.DocumentNumber;
+            }
+
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Customers");
         }
     }
 }

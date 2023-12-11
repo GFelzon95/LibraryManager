@@ -8,7 +8,10 @@ namespace LibraryManager
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/scripts/datatables/jquery.datatables.js",
+                        "~/scripts/datatables/datatables.bootstrap4.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -19,10 +22,13 @@ namespace LibraryManager
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/scripts/bootbox.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-litera.css",
+                      "~/Content/bootstrap-cosmo.css",
+                      "~/content/bootstrap-theme.css",
+                      "~/content/datatables/css/datatables.bootstrap4.css",
                       "~/Content/site.css"));
         }
     }
