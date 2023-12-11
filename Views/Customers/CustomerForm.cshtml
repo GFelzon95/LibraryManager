@@ -1,0 +1,48 @@
+﻿@model LibraryManager.ViewModels.CustomerFormViewModel
+@{
+    ViewBag.Title = "CustomerForm";
+}
+
+<h2>New mustomer</h2>
+@using (Html.BeginForm("Save", "Customers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.PhoneNumber)
+        @Html.TextBoxFor(m => m.Customer.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.PhoneNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.DocumentTypeId)
+        @Html.DropDownListFor(m => m.Customer.DocumentTypeId, new SelectList(Model.DocumentTypes, "Id", "Name"), "Select the type of ID", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.DocumentTypeId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.DocumentNumber)
+        @Html.TextBoxFor(m => m.Customer.DocumentNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.DocumentNumber)
+    </div>
+
+    @Html.HiddenFor(m => m.Customer.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+    {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("<span class='phoneNumber' style='display:inline-block'>+63</span>").insertBefore("input#Customer_PhoneNumber");
+            $("input#Customer_PhoneNumber").addClass("phoneNumber").css("display", "inline-block").css("max-width", "240px").css("margin-left", "10px");
+            $(".phoneNumber").wrapAll("<div>");
+        })
+    </script>
+}
