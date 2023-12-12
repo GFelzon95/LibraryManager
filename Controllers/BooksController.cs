@@ -27,9 +27,8 @@ namespace LibraryManager.Controllers
 
         public ActionResult New()
         {
-            var viewModel = new BookFormViewModel
+            var viewModel = new BookFormViewModel()
             {
-                Book = new Book { Id = 0 },
                 Genres = _context.Genres.ToList()
             };
             return View("BookForm", viewModel);
@@ -41,9 +40,8 @@ namespace LibraryManager.Controllers
                 .Include(b => b.Genre)
                 .SingleOrDefault(b => b.Id == id);
 
-            var viewModel = new BookFormViewModel
+            var viewModel = new BookFormViewModel(book)
             {
-                Book = book,
                 Genres = _context.Genres.ToList()
             };
 
@@ -56,9 +54,8 @@ namespace LibraryManager.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new BookFormViewModel
+                var viewModel = new BookFormViewModel(book)
                 {
-                    Book = book,
                     Genres = _context.Genres.ToList()
                 };
 
