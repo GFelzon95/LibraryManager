@@ -227,9 +227,15 @@
     <Compile Include="Migrations\202312111400432_ChangedDataAnnotationForDocumentNumberInCustomer.designer.cs">
       <DependentUpon>202312111400432_ChangedDataAnnotationForDocumentNumberInCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312120815548_AddBookAndGenreToDatabase.cs" />
+    <Compile Include="Migrations\202312120815548_AddBookAndGenreToDatabase.designer.cs">
+      <DependentUpon>202312120815548_AddBookAndGenreToDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -595,6 +601,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312111400432_ChangedDataAnnotationForDocumentNumberInCustomer.resx">
       <DependentUpon>202312111400432_ChangedDataAnnotationForDocumentNumberInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312120815548_AddBookAndGenreToDatabase.resx">
+      <DependentUpon>202312120815548_AddBookAndGenreToDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

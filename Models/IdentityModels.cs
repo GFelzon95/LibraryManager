@@ -22,6 +22,9 @@ namespace LibraryManager.Models
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<DocumentType> DocumentType { get; set; }
+        public DbSet<Book> Book { get; set; }
+        public DbSet<Genre> Genre { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
