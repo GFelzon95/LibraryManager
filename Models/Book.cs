@@ -21,7 +21,7 @@ namespace LibraryManager.Models
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
-        [Display(Name = "Release Date")]
+        [Display(Name = "Date Published")]
         public DateTime ReleaseDate { get; set; }
 
         [Display(Name = "Number in Stock")]

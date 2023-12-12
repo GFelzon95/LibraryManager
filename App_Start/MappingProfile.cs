@@ -10,6 +10,8 @@ namespace LibraryManager.App_Start
         {
             Mapper.CreateMap<Customer, CustomerDto>();
             Mapper.CreateMap<DocumentType, DocumentTypeDto>();
+            Mapper.CreateMap<Book, BookDto>();
+            Mapper.CreateMap<Genre, GenreDto>();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using LibraryManager.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace LibraryManager.Dtos
@@ -15,7 +14,7 @@ namespace LibraryManager.Dtos
 
         public string Description { get; set; }
 
-        public Genre Genre { get; set; }
+        public GenreDto Genre { get; set; }
 
         public byte GenreId { get; set; }
 

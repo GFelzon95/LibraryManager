@@ -7,5 +7,13 @@ namespace LibraryManager.ViewModels
     {
         public Book Book { get; set; }
         public IEnumerable<Genre> Genres { get; set; }
+
+        public string Title
+        {
+            get
+            {
+                return Book.Id == 0 ? "New Book" : "Edit Book";
+            }
+        }
     }
 }
