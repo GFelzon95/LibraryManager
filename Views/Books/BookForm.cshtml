@@ -1,0 +1,47 @@
+﻿@model LibraryManager.ViewModels.BookFormViewModel 
+@{
+    ViewBag.Title = "BookForm";
+}
+
+<h2>BookForm</h2>
+
+@using (Html.BeginForm("Save", "Books"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Book.Name)
+            @Html.TextBoxFor(m => m.Book.Name, new {@class = "form-control"})
+        </div>        
+        
+        <div class="form-group">
+            @Html.LabelFor(m => m.Book.Author)
+            @Html.TextBoxFor(m => m.Book.Author, new {@class = "form-control"})
+        </div>        
+        
+        <div class="form-group">
+            @Html.LabelFor(m => m.Book.Description)
+            @Html.TextAreaFor(m => m.Book.Description, new {@class = "form-control"})
+        </div>        
+        
+        <div class="form-group">
+            @Html.LabelFor(m => m.Book.GenreId)
+            @Html.DropDownListFor(m => m.Book.GenreId,new SelectList(Model.Genres,"Id","Name"),"Select a Genre", new {@class = "form-control"})
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(m => m.Book.ReleaseDate)
+            @Html.TextBoxFor(m => m.Book.ReleaseDate,"{0:d MMM yyyy}", new {@class = "form-control"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Book.NumberInStock)
+            @Html.TextBoxFor(m => m.Book.NumberInStock, new {@class = "form-control"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Book.NumberAvailable)
+            @Html.TextBoxFor(m => m.Book.NumberAvailable, new {@class = "form-control", @disabled = "true"})
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    }
+

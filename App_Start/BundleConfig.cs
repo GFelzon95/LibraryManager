@@ -26,7 +26,7 @@ namespace LibraryManager
                       "~/scripts/bootbox.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-cosmo.css",
+                      "~/Content/bootstrap-minty.css",
                       "~/content/bootstrap-theme.css",
                       "~/content/datatables/css/datatables.bootstrap4.css",
                       "~/Content/site.css"));

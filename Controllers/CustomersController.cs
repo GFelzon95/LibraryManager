@@ -32,7 +32,7 @@ namespace LibraryManager.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = new Customer { Id = 0 },
-                DocumentTypes = _context.DocumentType.ToList()
+                DocumentTypes = _context.DocumentTypes.ToList()
             };
 
             return View("CustomerForm", viewModel);
@@ -47,7 +47,7 @@ namespace LibraryManager.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
-                DocumentTypes = _context.DocumentType.ToList()
+                DocumentTypes = _context.DocumentTypes.ToList()
             };
 
             return View("CustomerForm", viewModel);
@@ -62,7 +62,7 @@ namespace LibraryManager.Controllers
                 var viewModel = new CustomerFormViewModel
                 {
                     Customer = customer,
-                    DocumentTypes = _context.DocumentType.ToList()
+                    DocumentTypes = _context.DocumentTypes.ToList()
                 };
 
                 return View("CustomerForm", viewModel);
