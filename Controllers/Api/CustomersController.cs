@@ -28,7 +28,7 @@ namespace LibraryManager.Controllers.Api
         }
 
         [HttpDelete]
-        public void DeleteCustomers(int id)
+        public void DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 

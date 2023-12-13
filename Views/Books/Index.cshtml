@@ -13,6 +13,7 @@
             <th>Title</th>
             <th>Author</th>
             <th>Genre</th>
+            <th>Delete</th>
         </tr>
     </thead>
 
@@ -42,8 +43,29 @@
                         },
                         {
                             data: "genre.name"
+                        },
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn btn-link js-delete' data-book-id='" + data +"'>Delete</button>"
+                            }
                         }
                     ]
+                })
+
+                $("#books").on("click", ".js-delete", function () {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete this book?", function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/books/" + button.attr("data-book-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    table.row(button.parents("tr")).remove().draw();
+                                }
+                            })
+                        }
+                    })
                 })
             })
         </script>

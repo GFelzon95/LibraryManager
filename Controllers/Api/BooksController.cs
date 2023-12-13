@@ -4,6 +4,7 @@ using LibraryManager.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Http;
 
 namespace LibraryManager.Controllers.Api
@@ -24,6 +25,20 @@ namespace LibraryManager.Controllers.Api
                 .Include(b => b.Genre)
                 .ToList()
                 .Select(Mapper.Map<Book, BookDto>);
+        }
+
+        [HttpDelete]
+        public void DeleteBook(int id)
+        {
+            var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
+
+            if (bookInDb == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            _context.Books.Remove(bookInDb);
+            _context.SaveChanges();
         }
     }
 }
