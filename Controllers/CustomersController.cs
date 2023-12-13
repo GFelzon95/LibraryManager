@@ -81,6 +81,7 @@ namespace LibraryManager.Controllers
                 customerInDb.PhoneNumber = customer.PhoneNumber;
                 customerInDb.DocumentTypeId = customer.DocumentTypeId;
                 customerInDb.DocumentNumber = customer.DocumentNumber;
+                customerInDb.HasABadRecord = customer.HasABadRecord;
             }
 
             _context.SaveChanges();

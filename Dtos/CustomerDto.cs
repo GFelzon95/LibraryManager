@@ -18,5 +18,7 @@ namespace LibraryManager.Dtos
 
         [Required]
         public string DocumentNumber { get; set; }
+
+        public bool HasABadRecord { get; set; }
     }
 }

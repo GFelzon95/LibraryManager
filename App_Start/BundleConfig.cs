@@ -10,7 +10,9 @@ namespace LibraryManager
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/scripts/datatables/jquery.datatables.js",
-                        "~/scripts/datatables/datatables.bootstrap4.js"
+                        "~/scripts/datatables/datatables.bootstrap4.js",
+                        "~/scripts/typeahead.bundle.js",
+                        "~/scripts/toastr.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -29,7 +31,9 @@ namespace LibraryManager
                       "~/Content/bootstrap-minty.css",
                       "~/content/bootstrap-theme.css",
                       "~/content/datatables/css/datatables.bootstrap4.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/content/typeahead.css",
+                      "~/content/toastr.css"));
         }
     }
 }

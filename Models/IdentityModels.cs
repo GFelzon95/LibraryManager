@@ -24,7 +24,7 @@ namespace LibraryManager.Models
         public DbSet<DocumentType> DocumentTypes { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Genre> Genres { get; set; }
-
+        public DbSet<CheckOut> CheckOuts { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

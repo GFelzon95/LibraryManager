@@ -24,5 +24,7 @@ namespace LibraryManager.Models
         [Required]
         [Display(Name = "Document Number")]
         public string DocumentNumber { get; set; }
+
+        public bool HasABadRecord { get; set; }
     }
 }

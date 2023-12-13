@@ -29,6 +29,12 @@
         @Html.TextBoxFor(m => m.Customer.DocumentNumber, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Customer.DocumentNumber)
     </div>
+    
+    <div class="form-group">
+        @Html.CheckBoxFor(m => m.Customer.HasABadRecord) Does have bad records?
+    </div>
+
+
 
     @Html.HiddenFor(m => m.Customer.Id)
     @Html.AntiForgeryToken()
