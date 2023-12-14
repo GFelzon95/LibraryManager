@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Check Outs</h2>
+<table id="books" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Customer</th>
+            <th>Book</th>
+            <th>Date Rented</th>
+            <th>Date Returned</th>
+            <th>Status</th>
+            <th>Return</th>
+        </tr>
+    </thead>
+</table>
+
+@section scripts
+    {
+        <script>
+            $(document).ready(function () {
+                var table = $("#books").DataTable({
+                    ajax: {
+                        url: "/api/checkouts",
+                        dataSrc: ""
+                    },
+                    columns: [
+                        {
+                            data: "id"
+                        },
+                        {
+                            data: "customer.name"
+                        },
+                        {
+                            data: "book.name"
+                        },
+                        {
+                            data: "dateCheckedOut",
+                            render: function (data) {
+                                const date = new Date(data);
+
+                                return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
+                            }
+                        },
+                        {
+                            data: "dateReturned",
+                            render: function (data) {
+                                if (data === null) {
+                                    return "";
+                                }
+
+                                const date = new Date(data);
+
+                                return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
+                            }
+                        },
+                        {
+                            data: "dateReturned",
+                            render: function (data) {
+                                if (data === null) {
+                                    return "<span class='pendingStatus'>Pending</span>";
+                                }
+
+                                return "<span class='completedStatus'>Completed</span>";
+                            }
+                        },
+                        {
+                            data: null,
+                            render: function (data) {
+                                if (data.dateReturned === null) {
+                                    return "<button class='btn btn-primary js-return' data-checkOut-id='" + data.id + "' data-book-id='" + data.book.id + "'>Return</button>";
+                                }
+
+                                return "<button class='btn btn-secondary js-return' disabled>Return</button>";
+                            }
+                        }
+                    ]
+                });
+
+                $("#books").on("click", ".js-return", function () {
+                    var button = $(this);
+
+                    bootbox.confirm("Are you sure you want to return the book?", function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/checkouts/" + button.attr("data-checkOut-id"),
+                                method: "PUT"
+                            });
+
+                            $.ajax({
+                                url: "/api/books/" + button.attr("data-book-id"),
+                                method: "PUT"
+                            });
+
+                            table.ajax.reload();
+                        }
+                    })
+                })
+            })
+        </script>
+    }
+

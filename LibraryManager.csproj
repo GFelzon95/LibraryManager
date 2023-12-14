@@ -203,6 +203,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\BooksController.cs" />
+    <Compile Include="Controllers\Api\CheckOutsController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\NewCheckOutController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Dtos\BookDto.cs" />
+    <Compile Include="Dtos\CheckOutDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\DocumentTypeDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
@@ -602,6 +604,7 @@
     <Content Include="Views\Books\BookForm.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\CheckOuts\New.cshtml" />
+    <Content Include="Views\CheckOuts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

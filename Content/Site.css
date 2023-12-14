@@ -28,3 +28,11 @@ label.error {
 input.error{
     border: 2px solid red;
 }
+
+span.pendingStatus {
+    color: red;
+}
+
+span.completedStatus {
+    color: green;
+}

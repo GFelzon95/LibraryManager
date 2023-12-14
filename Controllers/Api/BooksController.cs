@@ -27,6 +27,16 @@ namespace LibraryManager.Controllers.Api
                 .Select(Mapper.Map<Book, BookDto>);
         }
 
+        [HttpPut]
+        public void returnBook(int id)
+        {
+            var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
+
+            bookInDb.NumberAvailable++;
+
+            _context.SaveChanges();
+        }
+
         [HttpDelete]
         public void DeleteBook(int id)
         {
