@@ -28,7 +28,10 @@
                     },
                     columns: [
                         {
-                            data: "id"
+                            data: "id",
+                            render: function (data) {
+                                return "<a href='/users/edit/" + data + "'>" + data + "</a>";
+                            }
                         },
                         {
                             data: "email"

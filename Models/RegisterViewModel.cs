@@ -22,7 +22,7 @@ namespace LibraryManager.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string UserRole { get; set; }
+        //public string UserRole { get; set; }
 
         public IEnumerable<IdentityRole> Roles { get; set; }
     }
