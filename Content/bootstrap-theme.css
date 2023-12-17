@@ -1,5 +1,6 @@
 ﻿a.btnNewCustomer,
-a.btnNewBook {
+a.btnNewBook,
+a.btnNewCheckOut{
     margin-bottom: 15px;
 }
 

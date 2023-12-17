@@ -38,7 +38,10 @@
                             }
                         },
                         {
-                            data: "phoneNumber"
+                            data: "phoneNumber",
+                            render: function (data) {
+                                return "+63" + data
+                            }
                         },
                         {
                             data: "documentType.name"
@@ -65,7 +68,9 @@
                                 success: function () {
                                     table.row(button.parents("tr")).remove().draw();
                                 }
+
                             })
+                        }
                     })
                 })
             })
