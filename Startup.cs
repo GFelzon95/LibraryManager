@@ -26,7 +26,7 @@ namespace LibraryManager
         //        roleManager.Create(role);
         //        //Here we create a Admin super user who will maintain the website
         //        var user = new ApplicationUser();
-        //        user.Email = "adming@bookie.com";
+        //        user.Email = "admin@bookie.com";
         //        string userPWD = "Bookie.23";
         //        var chkUser = UserManager.Create(user, userPWD);
         //        //Add default User to Role Admin
