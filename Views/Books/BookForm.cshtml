@@ -16,9 +16,9 @@
         @Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
+    <div class="form-group description">
         @Html.LabelFor(m => m.Description)
-        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @id = "descriptionArea" })
     </div>
 
     <div class="form-group">
@@ -52,6 +52,15 @@
 
 @section Scripts
     {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            var description = $("div.description").children("#descriptionArea");
+            var height = document.getElementById("descriptionArea").scrollHeight;
+
+            description.css("height", height + "px")
+        })
+    </script>
+}
 

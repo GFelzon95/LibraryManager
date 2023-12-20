@@ -22,7 +22,11 @@ namespace LibraryManager.Controllers
         // GET: Books
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.Employee))
+            {
+                return View("ListOnly");
+            }
+            return View("List");
         }
 
         public ActionResult New()
@@ -44,6 +48,11 @@ namespace LibraryManager.Controllers
             {
                 Genres = _context.Genres.ToList()
             };
+
+            if (User.IsInRole(RoleName.Employee))
+            {
+                return View("BookDetails", viewModel);
+            }
 
             return View("BookForm", viewModel);
         }

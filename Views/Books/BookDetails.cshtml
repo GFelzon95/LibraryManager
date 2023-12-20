@@ -1,0 +1,60 @@
+﻿@model LibraryManager.ViewModels.BookFormViewModel
+@{
+    ViewBag.Title = "BookDetails";
+}
+
+<h2>Book Details</h2>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @disabled = "true" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Author)
+        @Html.TextBoxFor(m => m.Author, new { @class = "form-control", @disabled = "true" })
+    </div>
+
+    <div class="form-group description">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @id = "descriptionArea", @disabled = "true" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.GenreId)
+        @Html.DropDownListFor(m => m.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select a Genre", new { @class = "form-control", @disabled = "true" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control", @disabled = "true" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NumberInStock)
+        @Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control", @disabled = "true" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NumberAvailable)
+        @Html.TextBoxFor(m => m.NumberAvailable, new { @class = "form-control", @disabled = "true" })
+    </div>
+
+
+@section Scripts
+    {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            var description = $("div.description").children("#descriptionArea");
+            var height = document.getElementById("descriptionArea").scrollHeight;
+
+            description
+                .css("height", height + "px")
+                .css("resize", "none")
+                .css("overflow", "hidden")
+        })
+    </script>
+}
+
